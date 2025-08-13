@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>45/45</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .button {
+      display: block;
+      width: 80%;
+      margin: 10px auto;
+      padding: 15px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #126e17;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Random IB Revision</h1>
+
+  <button class="button" onclick="openRandom('economics')">Economics</button>
+  <button class="button" onclick="openRandom('physics')">Physics</button>
+  <button class="button" onclick="openRandom('mathAI')">Math AI SL</button>
+  <button class="button" onclick="openRandom('bio')">Biology</button>
+  <button class="button" onclick="openRandom('spanish')">Spanish</button>
+  <button class="button" onclick="openRandom('all')">Random (All Subjects)</button>
+
+  <script>
+    const links = {
+      economics: [
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-11-what-is-economics/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-12-how-do-economists-approach-the-world/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-21-demand/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-22-supply/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-23-competitive-market-equilibrium/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-24-elasticities-of-demand/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-25-elasticities-of-demand/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-25-price-elasticity-of-supply/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-26-role-of-government-in-microeconomics/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-27-market-failure-externalities-common-pool-resources-pu-11051/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-29-market-failure-public-goods/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-210-market-failure-asymmetric-information-hl-only/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-28-market-failure-market-power/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-212-the-markets-inability-to-achieve-equity-hl-only/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-31-measuring-economic-activities/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-32-variations-in-economic-activity-aggregate-demand-and-11034/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-33-macroeconomic-objectives/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-34-economics-of-inequality-and-poverty/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-35-demand-management-monetary-policy/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-36-demand-management-fiscal-policy/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-37-supply-side-policies/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-41-benefits-of-international-trade/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-42-types-of-trade-protection/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-43-arguments-for-and-against-trade-protection/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-44-economic-integration/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-45-exchange-rates/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-46-balance-of-payments/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-47-sustainable-development/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-48-measuring-development/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-49-barriers-to-economic-growth-and-economic-development/notes",
+        "https://www.revisiondojo.com/ib/ib-economics/ib-economics-410-economic-growth-and-economic-development-strategies/notes"
+      ],
+      physics: [
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-a1-kinematics/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-a2-forces-and-momentum/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-a3-work-energy-and-power/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-a4-rigid-body-mechanics/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-a5-galilean-and-special-relativity/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-b1-thermal-energy-transfers/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-b2-greenhouse-effect/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-b3-gas-laws/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-b4-thermodynamics/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-b5-current-and-circuits/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-c1-simple-harmonic-motion/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-c2-wave-model/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-c3-wave-phenomena/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-c4-standing-waves-and-resonance/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-c5-doppler-effect/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-d1-gravitational-fields/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-d2-electric-and-magnetic-fields/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-d3-motion-in-electromagnetic-fields/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-d4-induction/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-e1-structure-of-the-atom/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-e2-quantum-physics/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-e3-radioactive-decay/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-e4-fission/notes",
+        "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-e5-fusion-and-stars/notes"
+      ],
+      mathAI: [
+        "https://www.revisiondojo.com/ib/ib-math-ai/ib-math-ai-sl-11-using-standard-form/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-1-2-sequences-and-sigma-notation/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-1-3-geometric-sequences/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-1-4-financial-apps-compound-interest-annual-depreciation/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-1-5-exponents-and-logarithms/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-1-6-approximating-and-estimating/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-1-7-loan-repayments-and-amortization/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-1-8-use-of-technology-to-solve-systems-of-linear-equations-and-10443/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ib-math-ai-sl-21-equations-of-a-line/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-2-2-functions-domains-range-graphs/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-2-3-graph-of-a-function/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-2-4-features-of-a-graph/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-2-5-modelling-functions/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-2-6-modelling-skills/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-3-1-3d-space-volume-angles-midpoints/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-3-2-2d-and-3d-trig/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-3-3-angles-of-elevation-and-depression/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-3-4-the-circle-arc-and-area-of-sector-degrees-only/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-3-5-intersection-of-lines-equations-of-perpendicular-bisectors/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-3-6-voronoi-diagrams/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ib-math-ai-sl-41-introduction-to-statistics/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-4-2-presentation-of-data/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-4-3-mean-median-mode/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-4-4-correlation/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-4-5-trial-and-outcome/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-4-6-venn-diagrams/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-4-7-discrete-random-variables/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-4-8-binomial-distribution/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-4-9-normal-distribution/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-4-10-spearmans-rank-correlation-coefficient/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-4-11-expected-observed-hypotheses-chi-squared-gof-t-test/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-5-1-introduction-to-limits/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-5-2-increasing-and-decreasing-functions/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-5-3-introduction-to-derivatives/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-5-4-tangents-and-normals/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-5-5-introduction-to-integration/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-5-6-stationary-points-local-max-and-min/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-5-7-optimisation/learn",
+        "https://www.revisiondojo.com/ib/ib-math-ai/ai-sl-5-8-trapezoid-rule/learn"
+      ],
+      bio: [
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-a11-water/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-a12-nucleic-acids/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-a21-origins-of-cells-hl/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-a22-cell-structure/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-a23-viruses-hl/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-a31-diversity-of-organisms/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-a32-classification-and-cladistics-hl/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-a41-evolution-and-speciation/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-a42-conservation-of-biodiversity/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-b11-carbohydrates-and-lipids/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-b12-proteins/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-b21-membranes-and-membrane-transport/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-b22-organelles-and-compartmentalization/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-b23-cell-specialization/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-b31-gas-exchange/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-b32-transport/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-b33-muscle-and-motility-hl/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-b41-adaptation-to-environment/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-b42-ecological-niches/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-c11-enzymes-and-metabolism/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-c12-cell-respiration/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-c13-photosynthesis/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-c21-chemical-signalling-hl/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-c22-neural-signalling/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-c31-integration-of-body-systems/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-c32-defense-against-disease/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-c41-populations-and-communities/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-c42-transfer-of-energy-and-matter/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d11-dna-replication/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d12-protein-synthesis/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d13-mutations-and-gene-editing/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d21-cell-and-nuclear-division/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d22-gene-expression-hl/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d23-water-potential/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d31-reproduction/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d32-inheritance/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d33-homeostasis/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d41-natural-selection/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d42-sustainability-and-change/notes",
+        "https://www.revisiondojo.com/ib/ib-biology-new/ib-biology-new-d43-climate-change/notes"
+      ],
+      spanish: [
+        "https://quizlet.com/au/925386906/habitat-describir-un-lugar-flash-cards/?funnelUUID=f9809e78-d076-416d-9e33-dbf131ed2690",
+        "https://quizlet.com/au/927357258/habitat-los-puntos-cardinales-flash-cards/?funnelUUID=4e5f1ff0-f1c6-4c97-b30e-b737b98d1da9",
+        "https://quizlet.com/au/925386629/habitat-lugares-publicos-flash-cards/?funnelUUID=f0bcf8ba-173e-4ff8-99aa-43cd0e1ca33f",
+        "https://quizlet.com/au/927358020/habitat-muebles-y-objetos-de-la-casa-flash-cards/?funnelUUID=8870bcd2-c9d1-4187-9795-e495c164eb7b",
+        "https://quizlet.com/au/927357578/habitat-partes-de-la-casa-flash-cards/?funnelUUID=34f4cfc7-663e-4941-a638-939941c5422c",
+        "https://quizlet.com/au/1038209033/habitos-asignaturas-flash-cards/?funnelUUID=a021a390-dd1d-4660-8cc4-6ffa7bb4a28d",
+        "https://quizlet.com/au/1038206965/habitos-las-horas-flash-cards/?funnelUUID=7f4e37d0-857d-43c9-a61f-679844dfffcb",
+        "https://quizlet.com/au/1038208796/habitos-los-dias-de-la-semana-flash-cards/?funnelUUID=bc5e151d-d773-47ad-99a2-abee695d064b",
+        "https://quizlet.com/au/1038207919/habitos-rutina-diaria-flash-cards/?funnelUUID=b63d4d68-ff23-40b5-8c19-448e7538b381",
+        "https://quizlet.com/au/1043310700/habitos-verbos-de-movimiento-tiempo-y-duracion-flash-cards/?funnelUUID=9991b831-219b-48c2-b7ed-35cdf3994e59",
+        "https://quizlet.com/za/613192762/ib-spanish-ab-initio-text-types-flash-cards/?funnelUUID=f52247d7-70e6-4122-87b8-f49e3d59e7da",
+        "https://quizlet.com/au/1011447617/identidades-deportistas-flash-cards/?funnelUUID=d8c02943-2713-4147-81ef-a965eaeb361f",
+        "https://quizlet.com/au/1001160875/identidades-despedidas-flash-cards/?funnelUUID=b2f67418-c99c-4901-b6bc-4804449aa7cd",
+        "https://quizlet.com/au/1001175266/identidades-espanol-internacional-flash-cards/?funnelUUID=6d43e205-2a31-4f41-b5c2-b9fb5efeeef7",
+        "https://quizlet.com/au/1001164135/identidades-instrucciones-flash-cards/?funnelUUID=f7bc512b-379f-4cd2-b37b-992edb98d811",
+        "https://quizlet.com/au/1011446968/identidades-los-meses-del-ano-flash-cards/?funnelUUID=7bef625c-f137-4618-b38c-60753c82592c",
+        "https://quizlet.com/au/1001177045/identidades-objetos-de-la-clase-flash-cards/?funnelUUID=cc1c76dd-df21-4edd-a0ac-a341ddccabd5",
+        "https://quizlet.com/au/1001180347/identidades-paises-y-nacionalidades-flash-cards/?funnelUUID=c24fdf5b-b712-489d-a455-c230a398f7bd",
+        "https://quizlet.com/au/1011450109/identidades-preguntar-flash-cards/?funnelUUID=4344d2c0-5796-4e9e-9113-7ebc859941d4",
+        "https://quizlet.com/au/1001173213/identidades-preguntas-para-la-clase-flash-cards/?funnelUUID=d146ff07-db44-4c08-a378-e85c80b99d9b",
+        "https://quizlet.com/au/1011449458/identidades-presentarse-flash-cards/?funnelUUID=24aa80a2-d43f-491b-ada0-c582444d4e03",
+        "https://quizlet.com/au/1001161965/identidades-pronombres-personales-flash-cards/?funnelUUID=ac0d2584-e6fa-457d-b31b-a55e5086e7e1",
+        "https://quizlet.com/au/1001159462/identidades-saludos-flash-cards/?funnelUUID=c748145e-b560-42db-a337-545b6391a96a",
+        "https://quizlet.com/au/1011445397/indentidades-datos-personales-flash-cards/?funnelUUID=700c2421-4ec3-4394-9e8f-c4db01ee63d6",
+        "https://quizlet.com/au/1011501829/relaciones-adjetivos-de-caracter-flash-cards/?funnelUUID=84495871-bea0-4c79-bd0f-dee273a2c215",
+        "https://quizlet.com/au/1011495068/relaciones-descripcion-fisica-flash-cards/?funnelUUID=ff3706e7-d21a-4345-b4a4-ff11f909d839",
+        "https://quizlet.com/au/1011494275/relaciones-estado-civil-flash-cards/?funnelUUID=af937b15-a62a-4754-ac80-834ba51a2565",
+        "https://quizlet.com/au/1011451030/relaciones-las-relaciones-familiares-flash-cards/?funnelUUID=60f9cd58-612f-41f1-8aba-fa8a2d8571fd",
+        "https://quizlet.com/au/1011452005/relaciones-otras-relaciones-flash-cards/?funnelUUID=3a209e02-c9f5-484f-a432-4b876e9b5d78",
+        "https://quizlet.com/au/1011500589/relaciones-personas-flash-cards/?funnelUUID=d2006855-4c74-4cae-af9e-54d14fed1c50"
+      ]
+    };
+
+    function openRandom(subject) {
+      let pool = [];
+
+      if (subject === 'all') {
+        // Combine all links from every subject
+        for (const key in links) {
+          if (Array.isArray(links[key])) {
+            pool = pool.concat(links[key]);
+          }
+        }
+      } else if (links[subject]) {
+        pool = links[subject];
+      }
+
+      if (pool.length === 0) {
+        alert('No links available for this subject!');
+        return;
+      }
+
+      // Pick a random link and open it in a new tab
+      const randomIndex = Math.floor(Math.random() * pool.length);
+      const url = pool[randomIndex];
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
